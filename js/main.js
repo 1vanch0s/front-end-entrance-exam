@@ -21,19 +21,19 @@ const resumeData = {
   ],
   tools: {
     design: [
-      { name: "Figma", image: "media/Figma.png", link: "https://example.com/design" },
-      { name: "Photoshop", image: "media/PhotoshopLogo.png", link: "https://example.com/design" },
-      { name: "Premiere Pro", image: "media/PremiereProLogo.png", link: "https://example.com/design" },
-      { name: "DaVinchi Resolve", image: "media/DavinciLogo.png", link: "https://example.com/design" }
+      { name: "Figma", image: "media/Figma.png", link: "https://www.figma.com/" },
+      { name: "Photoshop", image: "media/PhotoshopLogo.png", link: "https://www.adobe.com/ru/products/photoshop.html" },
+      { name: "Premiere Pro", image: "media/PremiereProLogo.png", link: "https://www.adobe.com/products/premiere.html" },
+      { name: "DaVinchi Resolve", image: "media/DavinciLogo.png", link: "https://www.blackmagicdesign.com/products/davinciresolve" }
     ],
     nocode: [
-      { name: "Tilda", image: "media/TildaLogo.png", link: "https://example.com/nocode" },
-      { name: "WordPress", image: "media/WordPressLogo.png", link: "https://example.com/nocode" }
+      { name: "Tilda", image: "media/TildaLogo.png", link: "https://tilda.cc/ru/" },
+      { name: "WordPress", image: "media/WordPressLogo.png", link: "https://wordpress.com/ru/" }
     ],
     ai: [
-      { name: "GPT", image: "media/GptLogo.png", link: "https://example.com/ai" },
-      { name: "Grok", image: "media/GrokLogo.png", link: "https://example.com/ai" },
-      { name: "Flux", image: "media/KreaLogo.jpeg", link: "https://example.com/ai" },
+      { name: "GPT", image: "media/GptLogo.png", link: "https://chatgpt.com/" },
+      { name: "Grok", image: "media/GrokLogo.png", link: "https://grok.com/" },
+      { name: "Flux", image: "media/KreaLogo.jpeg", link: "https://www.krea.ai/image" },
     ]
   },
   interests: ["Видеоигры", "Спорт", "ИИ", "Видеосъемка", "Монтаж"]
