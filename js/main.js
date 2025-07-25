@@ -148,11 +148,49 @@ function renderSite() {
   contactSection.className = "contact-info";
   const contactH2 = document.createElement("h2");
   contactH2.textContent = "Контакты";
-  const contactP = document.createElement("p");
-  contactP.textContent = "Email: example@email.com | Телефон: +123456789";
   contactSection.appendChild(contactH2);
-  contactSection.appendChild(contactP);
+  const socials = [
+  { name: "VK", image: "media/VkLogo.png", link: "https://vk.com/facelessgod123" },
+  { name: "Telegram", image: "media/telegramLogo.png", link: "https://t.me/i1vanch0s" },
+  ];
+  socials.forEach(social => {
+  const socialDiv = document.createElement("div");
+  socialDiv.innerHTML = `<a href="${social.link}" target="_blank"><img src="${social.image}" alt="${social.name}"></a>`;
+  contactSection.appendChild(socialDiv);
+  });
+  const phone = document.createElement("p");
+  phone.innerHTML = `<strong>Телефон:</strong> <a href="tel:+79154165738">+79154165738</a>`;
+  const email = document.createElement("p");
+  email.innerHTML = `<strong>Email:</strong> <a href="mailto:1vanch0s133@gmail.com">1vanch0s133@gmail.com</a>`;
+  contactSection.appendChild(phone);
+  contactSection.appendChild(email);
   app.appendChild(contactSection);
-}
+
+  const downloadButton = document.createElement("button");
+  downloadButton.textContent = "Скачать резюме в PDF";
+  downloadButton.className = "download-button"; // Добавляем класс
+  app.appendChild(downloadButton);
+  
+  downloadButton.addEventListener("click", () => {
+  const element = document.getElementById("app");
+
+  // Включаем режим PDF-оформления
+  element.classList.add("pdf-layout");
+
+  // Даем браузеру немного времени отрендерить новые стили
+  setTimeout(() => {
+    html2pdf().set({
+      margin: 0,
+      filename: "Smolyakov_Ivan_resume.pdf",
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+    }).from(element).save().then(() => {
+      // Возвращаем обычный стиль
+      element.classList.remove("pdf-layout");
+    });
+  }, 100);
+});
+
+};
 
 document.addEventListener("DOMContentLoaded", renderSite);
