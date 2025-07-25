@@ -1,7 +1,6 @@
 import '../css/style.css'
-import javascriptLogo from '../javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+
+
 
 const resumeData = {
   name: "Смоляков Иван",
@@ -25,13 +24,19 @@ const resumeData = {
   ],
   tools: {
     design: [
-      { name: "Дизайн", image: "path/to/design-logo.png", link: "https://example.com/design" }
+      { name: "Figma", image: "path/to/design-logo.png", link: "https://example.com/design" },
+      { name: "Photoshop", image: "path/to/design-logo.png", link: "https://example.com/design" },
+      { name: "Premiere Pro", image: "path/to/design-logo.png", link: "https://example.com/design" },
+      { name: "DaVinchi Resolve", image: "path/to/design-logo.png", link: "https://example.com/design" }
     ],
     nocode: [
-      { name: "No-code", image: "path/to/nocode-logo.png", link: "https://example.com/nocode" }
+      { name: "Tilda", image: "path/to/nocode-logo.png", link: "https://example.com/nocode" },
+      { name: "WordPress", image: "path/to/nocode-logo.png", link: "https://example.com/nocode" }
     ],
     ai: [
-      { name: "ИИ", image: "path/to/ai-logo.png", link: "https://example.com/ai" }
+      { name: "GPT", image: "path/to/ai-logo.png", link: "https://example.com/ai" },
+      { name: "Grok", image: "path/to/ai-logo.png", link: "https://example.com/ai" },
+      { name: "Flux", image: "path/to/ai-logo.png", link: "https://example.com/ai" },
     ]
   },
   interests: ["Видеоигры", "Спорт", "ИИ", "Видеосъемка", "Монтаж"]
@@ -50,27 +55,8 @@ function renderSite() {
   header.appendChild(title);
   app.appendChild(header);
 
-  
-  const expSection = document.createElement("section");
-  const expH1 = document.createElement("h1");
-  expH1.textContent = "Опыт"; 
-  expSection.appendChild(expH1); 
-  resumeData.experience.forEach(job => {
-    const jobDiv = document.createElement("div");
-    jobDiv.innerHTML = `<strong>${job.role}</strong> - ${job.company} (${job.period})<br>${job.desc}`;
-    expSection.appendChild(jobDiv);
-  });
-  app.appendChild(expSection);
-
-  const eduSection = document.createElement("section");
-  resumeData.edicatinon.forEach(edu=>{
-    const eduDiv = document.createElement("div");
-    eduDiv.innerHTML = `<strong>${edu.degree}</strong> - ${edu.insititution} ${edu.year}`;
-    eduSection.appendChild(eduDiv);
-  });
-  app.appendChild(eduSection);
-
   const langSection = document.createElement("section");
+  langSection.className = "lang";
   const langH1 = document.createElement("h1");
   langH1.textContent = "Языки"; 
   langSection.appendChild(langH1); 
@@ -88,10 +74,38 @@ function renderSite() {
   });
   app.appendChild(langSection);
 
+  
+  const expSection = document.createElement("section");
+  expSection.className = "exp";
+  const expH1 = document.createElement("h1");
+  expH1.textContent = "Опыт"; 
+  expSection.appendChild(expH1); 
+  resumeData.experience.forEach(job => {
+    const jobDiv = document.createElement("div");
+    jobDiv.innerHTML = `<strong>${job.role}</strong> - ${job.company} (${job.period})<br>${job.desc}`;
+    expSection.appendChild(jobDiv);
+  });
+  app.appendChild(expSection);
+
+  const eduSection = document.createElement("section");
+  eduSection.className = "edu"
+  const eduH1 = document.createElement("h1");
+  eduH1.textContent = "Образование";
+  eduSection.appendChild(eduH1);
+  resumeData.edicatinon.forEach(edu=>{
+    const eduDiv = document.createElement("div");
+    eduDiv.innerHTML = `<strong>${edu.degree}</strong> - ${edu.insititution} ${edu.year}`;
+    eduSection.appendChild(eduDiv);
+  });
+  app.appendChild(eduSection);
+
+  
+
   const toolsSection = document.createElement("section");
-const toolsH1 = document.createElement("h1");
-toolsH1.textContent = "Инструменты";
-toolsSection.appendChild(toolsH1);
+  toolsSection.className = "tools"
+  const toolsH1 = document.createElement("h1");
+  toolsH1.textContent = "Инструменты";
+  toolsSection.appendChild(toolsH1);
 
 
 for (const category in resumeData.tools) {
@@ -103,10 +117,11 @@ for (const category in resumeData.tools) {
     categoryDiv.appendChild(toolDiv);
   });
   toolsSection.appendChild(categoryDiv);
-}
-app.appendChild(toolsSection);
+  }
+  app.appendChild(toolsSection);
 
   const interestsSection = document.createElement("section");
+  interestsSection.className = "interest"
   const interestsH1 = document.createElement("h1");
   interestsH1.textContent = "Интересы"; 
   interestsSection.appendChild(interestsH1); 
@@ -115,7 +130,7 @@ app.appendChild(toolsSection);
     interestDiv.textContent = interest;
     interestsSection.appendChild(interestDiv);
 });
-app.appendChild(interestsSection);
+  app.appendChild(interestsSection);
 
 }
 
