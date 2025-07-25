@@ -12,16 +12,20 @@
 ## Как запустить локально
 1. Установите зависимости:
 ```bash
-   npm install ```
+   npm install
+```
 2. Запустите сервер разработки:
 ```bash
-   npm run dev ```
+   npm run dev
+ ```
 3. Для сборки проекта выполните:
 ```bash
-   npm run build ```
+   npm run build
+```
 4. Для предварительного просмотра собранной версии:
 ```bash
-   npm run preview ```
+   npm run preview
+```
    
 
    
