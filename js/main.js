@@ -165,9 +165,7 @@ function renderSite() {
   contactSection.appendChild(phone);
   contactSection.appendChild(email);
   app.appendChild(contactSection);
-
   
-
 };
 
 document.addEventListener("DOMContentLoaded", renderSite);

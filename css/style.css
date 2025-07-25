@@ -9,21 +9,7 @@ body {
   line-height: 1.6;
 }
 
-.download-button {
-  padding: 10px 20px;
-  margin: 20px auto; /* Центрируем и добавляем отступ сверху */
-  background-color: #0066cc;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-  width: fit-content; /* Ширина по содержимому */
-}
 
-.download-button:hover {
-  background-color: #005bb5; /* Эффект при наведении */
-}
 
 #app {
   display: grid;
@@ -205,27 +191,4 @@ section:hover {
   }
 }
 
-.pdf-layout {
-  display: block !important;
-  width: 210mm;
-  max-width: 100%;
-  background: white;
-}
 
-.pdf-layout section {
-  page-break-inside: avoid;
-  break-inside: avoid;
-  width: 100% !important;
-  margin-bottom: 10mm;
-}
-
-.pdf-layout .tools-container {
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-@media print {
-  .pdf-layout {
-    width: 100%;
-  }
-}
