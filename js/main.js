@@ -166,30 +166,7 @@ function renderSite() {
   contactSection.appendChild(email);
   app.appendChild(contactSection);
 
-  const downloadButton = document.createElement("button");
-  downloadButton.textContent = "Скачать резюме в PDF";
-  downloadButton.className = "download-button"; // Добавляем класс
-  app.appendChild(downloadButton);
   
-  downloadButton.addEventListener("click", () => {
-  const element = document.getElementById("app");
-
-  // Включаем режим PDF-оформления
-  element.classList.add("pdf-layout");
-
-  // Даем браузеру немного времени отрендерить новые стили
-  setTimeout(() => {
-    html2pdf().set({
-      margin: 0,
-      filename: "Smolyakov_Ivan_resume.pdf",
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
-    }).from(element).save().then(() => {
-      // Возвращаем обычный стиль
-      element.classList.remove("pdf-layout");
-    });
-  }, 100);
-});
 
 };
 
