@@ -1,26 +1,23 @@
 import '../css/style.css'
 
-
-
 const resumeData = {
   name: "Смоляков Иван",
   title: "Full-Stack Разработчик/Маркетолог",
   photo: "media/me.jpg",
-  experience:[
-    {role: "Маркетолог", company: "Фриланс", period: "Март 2024 - Настоящее время", desc: "Разработка сайтов под ключ при помощи no-code и code инструментов (Лендинги, Квиз-сайты, Интернет магазины); Настройка контекстной рекламы; Создание продающего видеоконтента;"},
-    {role: "Python разработчик", company: "Фриланс", period: "Декабрь 2024 - Настоящее время", desc: "Разработка Telegram ботов; Участие в различных проектах в роли python разработчика"},
+  experience: [
+    { role: "Маркетолог", company: "Фриланс", period: "Март 2024 - Настоящее время", desc: "Разработка сайтов под ключ при помощи no-code и code инструментов (Лендинги, Квиз-сайты, Интернет магазины); Настройка контекстной рекламы; Создание продающего видеоконтента;" },
+    { role: "Python разработчик", company: "Фриланс", period: "Декабрь 2024 - Настоящее время", desc: "Разработка Telegram ботов; Участие в различных проектах в роли python разработчика" },
   ],
   edicatinon: [
-    {degree: "Фулстек разработка", year: "2023-2027", insititution: "РТУ МИРЭА" },
-    {degree: "Комплексный онлайн маркетнг", year: "2024", insititution: "Grind University (онлайн курс)"},
-    {degree: "Взлом конверсии X (онлайн маркетнг)", year: "2025", insititution: "Surgay.ru (онлайн курс)"},
-    {degree:"Digital-marketing по программе НИУ ВШЭ", year:"2025", insititution:"Surgay.ru (онлайн курс)"},
-
+    { degree: "Фулстек разработка", year: "2023-2027", insititution: "РТУ МИРЭА" },
+    { degree: "Комплексный онлайн маркетнг", year: "2024", insititution: "Grind University (онлайн курс)" },
+    { degree: "Взлом конверсии X (онлайн маркетнг)", year: "2025", insititution: "Surgay.ru (онлайн курс)" },
+    { degree: "Digital-marketing по программе НИУ ВШЭ", year: "2025", insititution: "Surgay.ru (онлайн курс)" },
   ],
   languages: [
-    {name:"Русский", level: 100},
-    {name:"English", level: 75},
-    {name:"Français", level: 5}
+    { name: "Русский", level: 100 },
+    { name: "English", level: 75 },
+    { name: "Français", level: 5 }
   ],
   tools: {
     design: [
@@ -40,14 +37,13 @@ const resumeData = {
     ]
   },
   interests: ["Видеоигры", "Спорт", "ИИ", "Видеосъемка", "Монтаж"]
-
 };
 
 function renderSite() {
   const app = document.getElementById("app");
 
   const photoSection = document.createElement("section");
-  photoSection.className = "profile-photo-section"; 
+  photoSection.className = "profile-photo-section";
   const photo = document.createElement("img");
   photo.src = resumeData.photo;
   photo.alt = "Profile photo";
@@ -58,7 +54,7 @@ function renderSite() {
   const infoSection = document.createElement("section");
   infoSection.className = "profile-info-section";
   const greeting = document.createElement("p");
-  greeting.textContent = "Привет, меня зовут...";
+  greeting.textContent = "Привет, меня зовут";
   const name = document.createElement("h1");
   name.textContent = resumeData.name;
   const title = document.createElement("h2");
@@ -68,33 +64,29 @@ function renderSite() {
   infoSection.appendChild(title);
   app.appendChild(infoSection);
 
-
-
   const langSection = document.createElement("section");
   langSection.className = "lang";
   const langH1 = document.createElement("h1");
-  langH1.textContent = "Языки"; 
-  langSection.appendChild(langH1); 
-  resumeData.languages.forEach(lang=>{
+  langH1.textContent = "Языки";
+  langSection.appendChild(langH1);
+  resumeData.languages.forEach(lang => {
     const langDiv = document.createElement("div");
-    langDiv.innerHTML=`<strong>${lang.name}</strong>`;
+    langDiv.innerHTML = `<strong>${lang.name}</strong>`;
     const progressBar = document.createElement("div");
-    progressBar.style.width = `${lang.level}%`; 
-    progressBar.style.height = "20px"; 
-    progressBar.style.backgroundColor = "#4CAF50"; 
-    progressBar.style.borderRadius = "5px"; 
+    progressBar.style.width = `${lang.level}%`;
+    progressBar.style.height = "20px";
+    progressBar.style.backgroundColor = "#4CAF50";
+    progressBar.style.borderRadius = "5px";
     langDiv.appendChild(progressBar);
-    langSection.appendChild(langDiv);
     langSection.appendChild(langDiv);
   });
   app.appendChild(langSection);
 
-  
   const expSection = document.createElement("section");
   expSection.className = "exp";
   const expH1 = document.createElement("h1");
-  expH1.textContent = "Опыт"; 
-  expSection.appendChild(expH1); 
+  expH1.textContent = "Опыт";
+  expSection.appendChild(expH1);
   resumeData.experience.forEach(job => {
     const jobDiv = document.createElement("div");
     jobDiv.className = "jobDiv";
@@ -108,32 +100,30 @@ function renderSite() {
   const toolsH1 = document.createElement("h1");
   toolsH1.textContent = "Инструменты";
   toolsSection.appendChild(toolsH1);
-
-for (const category in resumeData.tools) {
-  const categoryDiv = document.createElement("div");
-  categoryDiv.className = "tool-category";
-  const categoryTitle = document.createElement("h3"); // Новый тег для подзаголовка
-  categoryTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-  categoryDiv.appendChild(categoryTitle);
-
-  const toolsContainer = document.createElement("div"); // Контейнер для картинок
-  toolsContainer.className = "tools-container";
-  resumeData.tools[category].forEach(tool => {
-    const toolDiv = document.createElement("div");
-    toolDiv.innerHTML = `<a href="${tool.link}" target="_blank"><img src="${tool.image}" alt="${tool.name}"></a>`;
-    toolsContainer.appendChild(toolDiv);
-  });
-  categoryDiv.appendChild(toolsContainer);
-  toolsSection.appendChild(categoryDiv);
-}
-app.appendChild(toolsSection);
+  for (const category in resumeData.tools) {
+    const categoryDiv = document.createElement("div");
+    categoryDiv.className = "tool-category";
+    const categoryTitle = document.createElement("h3");
+    categoryTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+    categoryDiv.appendChild(categoryTitle);
+    const toolsContainer = document.createElement("div");
+    toolsContainer.className = "tools-container";
+    resumeData.tools[category].forEach(tool => {
+      const toolDiv = document.createElement("div");
+      toolDiv.innerHTML = `<a href="${tool.link}" target="_blank"><img src="${tool.image}" alt="${tool.name}"></a>`;
+      toolsContainer.appendChild(toolDiv);
+    });
+    categoryDiv.appendChild(toolsContainer);
+    toolsSection.appendChild(categoryDiv);
+  }
+  app.appendChild(toolsSection);
 
   const eduSection = document.createElement("section");
-  eduSection.className = "edu"
+  eduSection.className = "edu";
   const eduH1 = document.createElement("h1");
   eduH1.textContent = "Образование";
   eduSection.appendChild(eduH1);
-  resumeData.edicatinon.forEach(edu=>{
+  resumeData.edicatinon.forEach(edu => {
     const eduDiv = document.createElement("div");
     eduDiv.className = "eduDiv";
     eduDiv.innerHTML = `<strong>${edu.degree}</strong> - ${edu.insititution} ${edu.year}`;
@@ -141,25 +131,28 @@ app.appendChild(toolsSection);
   });
   app.appendChild(eduSection);
 
-  
-
-  
-
   const interestsSection = document.createElement("section");
-  interestsSection.className = "interest"
+  interestsSection.className = "interest";
   const interestsH1 = document.createElement("h1");
-  interestsH1.textContent = "Интересы"; 
-  interestsSection.appendChild(interestsH1); 
+  interestsH1.textContent = "Интересы";
+  interestsSection.appendChild(interestsH1);
   resumeData.interests.forEach(interest => {
     const interestDiv = document.createElement("div");
     interestDiv.className = "interestDiv";
     interestDiv.textContent = interest;
     interestsSection.appendChild(interestDiv);
-});
+  });
   app.appendChild(interestsSection);
 
-  
-
+  const contactSection = document.createElement("section");
+  contactSection.className = "contact-info";
+  const contactH2 = document.createElement("h2");
+  contactH2.textContent = "Контакты";
+  const contactP = document.createElement("p");
+  contactP.textContent = "Email: example@email.com | Телефон: +123456789";
+  contactSection.appendChild(contactH2);
+  contactSection.appendChild(contactP);
+  app.appendChild(contactSection);
 }
 
 document.addEventListener("DOMContentLoaded", renderSite);
