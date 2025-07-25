@@ -165,6 +165,15 @@ function renderSite() {
   contactSection.appendChild(phone);
   contactSection.appendChild(email);
   app.appendChild(contactSection);
+
+  const downloadButton = document.createElement("button");
+  downloadButton.textContent = "Скачать резюме в PDF";
+  downloadButton.className = "download-button";
+  const pdfLink = document.createElement("a");
+  pdfLink.href = "media/resume.pdf"; 
+  pdfLink.download = "media/resume.pdf"; 
+  pdfLink.appendChild(downloadButton);
+  app.appendChild(pdfLink); 
   
 };
 
