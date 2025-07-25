@@ -10,25 +10,77 @@ body {
 
 #app {
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 1fr)); 
-  gap: 20px; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивные колонки */
+  gap: 20px; /* Равномерные отступы */
   padding: 20px;
-  max-width: 1200px; 
-  margin: 0 auto; 
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.profile-info-section {
+  grid-column: 2;
+  grid-row: auto; /* Автоматическая высота */
+  padding: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: auto; /* Убираем фиксированную высоту */
+  min-height: 0; /* Убираем минимальную высоту */
+  display: flex; /* Выравниваем содержимое */
+  flex-direction: column;
+  justify-content: center; /* Центрируем вертикально */
+}
+
+
+.profile-info-section h1 {
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+.profile-info-section  h2 {
+  font-size: 18px;
+  color: #666;
+}
+
+.profile-photo {
+  width: 200px; 
+  height: auto; 
+  border-radius: 10%; 
+  object-fit: fill; 
+  max-width: 100%; 
+}
+
+.profile-photo-section {
+  padding: 0; 
+  background: none; 
+  border-radius: 0; 
+  box-shadow: none; 
+  width: 100%; 
+  height: 100%; 
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
 }
 
 section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Равномерное распределение содержимого */
+  min-height: 200px; /* Минимальная высота для ровности, как в примере */
+  padding: 15px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  padding: 15px;
-  margin: 10px;
-  min-height: 0; 
-  height: auto; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
 section:hover {
   transform: translateY(-5px);
   transition: transform 0.3s;
+}
+.eduDiv, .jobDiv{
+  background: #f9f9f9; 
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0; 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .exp { grid-area: 1 / 1 / 3 / 3;
@@ -47,6 +99,32 @@ grid-row: auto }
   grid-row: span 1;
 }
 
+
+
+.tools div { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 10px; 
+}
+.tool-category {
+  margin-top: 10px;
+  text-align: center; /* Центрируем подзаголовок */
+}
+
+.tools-container {
+  display: flex;
+  justify-content: center; /* Центрируем картинки */
+  flex-wrap: wrap;
+  gap: 10px; /* Расстояние между картинками */
+  margin-top: 10px; /* Отступ после подзаголовка */
+}
+
+.tools img {
+  width: 50px;
+  height: auto;
+  border-radius: 5px;
+  vertical-align: middle;
+}
 div div {
   margin: 5px 0;
 }
